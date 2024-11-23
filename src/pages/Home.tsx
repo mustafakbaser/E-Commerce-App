@@ -1,6 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
+import CategoryCard from '../components/CategoryCard';
+import FlashDealsHeader from '../components/FlashDealsHeader';
+import FeaturedProducts from '../components/FeaturedProducts';
+import PromoBanner from '../components/PromoBanner';
+import NewsletterSignup from '../components/NewsletterSignup';
 
 const Home = () => {
   const featuredProducts = [
@@ -27,64 +33,57 @@ const Home = () => {
     }
   ];
 
+  const featuredCategories = [
+    {
+      name: "Elektronik",
+      image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=500&q=80",
+      productCount: 1250
+    },
+    {
+      name: "Moda",
+      image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=500&q=80",
+      productCount: 3420
+    },
+    {
+      name: "Ev & Yaşam",
+      image: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=500&q=80",
+      productCount: 2180
+    },
+    {
+      name: "Kozmetik",
+      image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=500&q=80",
+      productCount: 890
+    }
+  ];
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Hero Section */}
-      <div className="relative h-[500px] rounded-2xl overflow-hidden mb-12">
-        <img
-          src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=80"
-          alt="Hero"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center">
-          <div className="text-white ml-12">
-            <h1 className="text-5xl font-bold mb-4">Yeni Sezon</h1>
-            <p className="text-xl mb-8">En yeni ürünleri keşfedin</p>
-            <button className="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-              Alışverişe Başla
-            </button>
-          </div>
+    <div>
+      {/* Flash Deals Header */}
+      <FlashDealsHeader />
+
+      {/* Categories */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-2xl font-bold">Popüler Kategoriler</h2>
+          <Link to="/categories" className="text-primary-600 hover:text-primary-700 flex items-center">
+            Tümünü Gör <ArrowRight size={16} className="ml-1" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featuredCategories.map((category) => (
+            <CategoryCard key={category.name} {...category} />
+          ))}
         </div>
       </div>
 
-      {/* Categories */}
-      <section className="mb-12">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">Kategoriler</h2>
-          <a href="/categories" className="text-blue-600 hover:text-blue-700 flex items-center">
-            Tümünü Gör <ArrowRight size={16} className="ml-1" />
-          </a>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {['Elektronik', 'Giyim', 'Ev & Yaşam', 'Spor'].map((category) => (
-            <div key={category} className="relative h-40 rounded-lg overflow-hidden group">
-              <img
-                src={`https://source.unsplash.com/random/400x300?${category}`}
-                alt={category}
-                className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-              />
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                <h3 className="text-white text-xl font-semibold">{category}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Featured Products */}
-      <section>
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">Öne Çıkan Ürünler</h2>
-          <a href="/products" className="text-blue-600 hover:text-blue-700 flex items-center">
-            Tümünü Gör <ArrowRight size={16} className="ml-1" />
-          </a>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </section>
+      <FeaturedProducts />
+
+      {/* Promo Banner */}
+      <PromoBanner />
+
+      {/* Newsletter Signup */}
+      <NewsletterSignup />
     </div>
   );
 };

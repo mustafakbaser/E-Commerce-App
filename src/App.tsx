@@ -8,6 +8,7 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Favorites from './pages/Favorites';
 import Orders from './pages/Orders';
+import Account from './pages/Account';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/orders" element={<Orders />} />
+            <Route path="/account" element={<Account />} />
           </Routes>
         </main>
         <Footer />
