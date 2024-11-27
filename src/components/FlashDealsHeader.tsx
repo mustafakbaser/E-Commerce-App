@@ -38,16 +38,15 @@ const FlashDealsHeader: React.FC = () => {
   ];
 
   return (
-    <div className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white overflow-hidden">
+    <div className="relative bg-white overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-center justify-center space-x-2 mb-8">
-          <Zap className="w-6 h-6 text-yellow-400" />
-          <h2 className="text-2xl font-bold text-yellow-400">Flaş Fırsatlar</h2>
+          <Zap className="w-6 h-6 text-blue-600" />
+          <h2 className="text-2xl font-bold text-gray-900">Flaş Fırsatlar</h2>
         </div>
 
         <Swiper
@@ -69,21 +68,21 @@ const FlashDealsHeader: React.FC = () => {
                   transition={{ duration: 0.5 }}
                   className="text-center md:text-left"
                 >
-                  <div className="inline-flex items-center bg-red-500 text-white px-4 py-2 rounded-full mb-6">
+                  <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full mb-6">
                     <Timer className="w-4 h-4 mr-2" />
                     <span className="text-sm font-medium">Sınırlı Stok: {deal.remainingStock} adet</span>
                   </div>
                   
-                  <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                  <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                     {deal.title}
                   </h1>
                   
                   <div className="mb-6">
-                    <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-2">
+                    <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-2">
                       {deal.discount} İndirim
                     </div>
                     <div className="flex items-center justify-center md:justify-start space-x-3">
-                      <span className="text-3xl md:text-4xl font-bold">{deal.price}</span>
+                      <span className="text-3xl md:text-4xl font-bold text-gray-900">{deal.price}</span>
                       <span className="text-xl text-gray-400 line-through">{deal.originalPrice}</span>
                     </div>
                   </div>
@@ -91,7 +90,7 @@ const FlashDealsHeader: React.FC = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-8 py-4 rounded-full font-bold inline-flex items-center group"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold inline-flex items-center group transition-colors"
                   >
                     Hemen Satın Al
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -104,17 +103,17 @@ const FlashDealsHeader: React.FC = () => {
                   transition={{ duration: 0.5 }}
                   className="relative"
                 >
-                  <div className="aspect-square rounded-3xl overflow-hidden">
+                  <div className="aspect-square rounded-3xl overflow-hidden bg-white shadow-lg">
                     <img
                       src={deal.image}
                       alt={deal.title}
                       className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
                     />
                   </div>
-                  <div className="absolute -top-4 -right-4 bg-red-500 text-white w-20 h-20 rounded-full flex items-center justify-center transform rotate-12">
+                  <div className="absolute -top-4 -right-4 bg-red-500 text-white w-20 h-20 rounded-full flex items-center justify-center transform rotate-12 shadow-lg">
                     <div className="text-center">
-                      <div className="text-sm">KAÇIRMA</div>
-                      <div className="font-bold text-lg">%25</div>
+                      <div className="text-sm font-bold">KAÇIRMA</div>
+                      <div className="text-lg font-bold">%25</div>
                     </div>
                   </div>
                 </motion.div>
@@ -122,8 +121,6 @@ const FlashDealsHeader: React.FC = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-900 to-transparent" />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "node src/server/index.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -23,7 +24,8 @@
     "bcryptjs": "^2.4.3",
     "framer-motion": "^11.0.8",
     "react-intersection-observer": "^9.8.1",
-    "swiper": "^11.0.7"
+    "swiper": "^11.0.7",
+    "axios": "^1.6.7"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
